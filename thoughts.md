@@ -20,8 +20,12 @@
 - Clean data from unwanted columns: done
 - Clean data from duplicates: done
 - Clean data from missing entries
+    - Remove entries with missing developer field: done
+    - Need to evaluate other fields
 - Transforms entries with at least 1 DLC into multiple rows
+- Agreggate data around developers: done
 - Apply k-means on final, cleaned dataset
+    - Partially done, needs improvement
 
 ## Plan of action for the weekend
 - Clean the dataset
