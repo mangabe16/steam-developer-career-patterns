@@ -15,75 +15,59 @@
         
         - Does the removal of adult games weaken our hypothesis?
             - What type of growth can be found? Linear, or a different kind?
+## Mining methods
+- A priori
+    - Need to determine a meaningful threshold
+    - Example question
+        - Given 5 (or more) games produced, is there success?
+            Need to establish a metric of success, add a column with a boolean of 'successful' or not
+            Interested in looking at genre tags
+- Clustering
+    - Introduce more dimensions
+        - Avg_game_popularity
+        - Max_popularity
+        - Frequency: games/year ratio
+        - Genre_count
+        - Years_active: year of most recent release - year of earliest release, integer of how many years they were active
+        - Front_page_effort: number of images + number of videos + 10 if description is over a paragraph, or len(description)/500
+    - Run clustering with these new attributes
+    - Once meaningful clusters are found, we name them and call it a day
+- Random forest
+    - Classifier, contrast it to a linear regression
+
+            
 
 ## Tasks
-- Clean data from unwanted columns: done
-- Clean data from duplicates: done
-- Clean data from missing entries
-    - Remove entries with missing developer field: done
-    - Need to evaluate other fields
-- Transforms entries with at least 1 DLC into multiple rows
-- Agreggate data around developers: done
+- Clean data from missing entries: IN PROGRESS
+    - Remove entries with missing developer field: DONE
+    - Need to evaluate other fields: NEEDED
+- Transforms entries with at least 1 DLC into multiple rows: NEEDED
 - Apply k-means on final, cleaned dataset
     - Partially done, needs improvement
+- Identify outliers: IN PROGRESS
+    - Used z score, but with the mean so low, need to determine the right cutoff
+    - Could consider using IQR as well
 
-## Plan of action for the weekend
-- Clean the dataset
-    - Remove duplicates
-    - Drop columns we will not utilize
-        -Need to define this!
-    - Decide cleaning for N.A (should we just drop them? apply median? and for all columns, or just some)
-    - Have a finished, cleaned, dataset, from which we begin mining
-    - Apply k-means clustering
-        - Do for different values for k
 
 ## Thoughts
 
-- keep developers with 1 game published
-- need to clean and aggregate the data
-    - if one game has 2 developers, make duplicate that row
-    - drop unused columns
-- Could consider using K-means to evaluate quality of clusters
-    - Iterate through number of clusters and evaluate their strength
-        - SSE:Total within-cluster squared error
-        - Elbow method: SSE always falls as K grows; look for diminishing returns.
-- Looking for r -> the strength of correlation
-    - number of games released x number of reviews
-    - can do by genre
-    make sure to have correlation line in the plot
-    r value starts at 0
-    pearson correlation matrix
-    once r is found, you can state what kind of correlation was found
-    in the distributiion, could ask if it is statistically significant
-    looking at p-value
 
 Interesting questions to look for
-    - Ascertain if there are "types"/clusters of developers
-        
-    
+    - Ascertain if there are "types"/clusters of developers        
 
 - We are likely to have several datasets at the end of our process
     - Can compare subdatasets and look at correlations
     - Can recover sale information from proxies
     - Compare different metrics of success with their correlation to a game's success 
         
-
-## Data Quality
-- Need to finish table at `Looking at the shape and attributes of our data` section
-    - Are dates ordinal? Categorical?
-    - Are names also identifiers? or just AppID?
-    - Is `Estimated Owners` ratio or discrete?
-
-
-## Ideas for later
-- consider using pd.cut() for binning values
-    - we could have a new label for a developer/game, with the label low/high engagement
-
-## For cleaning
-- Standardize null representations: CSVs often use 'N/A', '-', 'null', or empty strings inconsistently. Pass na_values to read_csv or use replace() post-load to unify them before calling isna().
-- Convert to appropriate types: Object columns containing repeated strings should become categories. Numeric columns stored as strings need pd.to_numeric(errors='coerce') to safely handle non-numeric garbage.
-- Handle duplicates explicitly: Use duplicated(subset=[...], keep=False) to flag all duplicate records, not just subsequent ones, allowing manual review before dropping.
-- Validate ranges and constraints: Apply business rules early. Negative amounts, future timestamps, or invalid status codes should be isolated into a separate error DataFrame rather than mixed into clean data.
-
-## For aggregationa nd transformation
-- look into `groupby()` and `transform()`
+## Papers to look at
+- David Arthur and Sergei Vassilvitskii. SODA, 2007, pp. 1027-1035.
+    - https://research.google/pubs/k-means-the-advantages-of-careful-seeding/
+    - K-Means++
+        - Notes:
+            - Introduces kmeans++, doesn't much help us in our project. Core focus is explaning the improvement kmeans++ brings and proves it
+- Martin Ester, Hans-Peter Kriegel, Jorg Sander, and Xiaowei Xu. KDD, 1996.
+    - https://file.biolab.si/papers/1996-DBSCAN-KDD.pdf
+    - DBSCAN/Density-Based Clustering
+        - Useful when clusters are non-spherical, when the number of clusters is not known in advance, or when noise points are important
+- 
