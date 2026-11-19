@@ -47,13 +47,11 @@
 - Identify outliers: IN PROGRESS
     - Used z score, but with the mean so low, need to determine the right cutoff
     - Could consider using IQR as well
-- Cap both price and games: DONE
-    - Max $100 price, and max 10 games
-    - Do these during analysis
-        - Defend why it was done so
 
 ## Things to document
 - Difficult to differentiate indie developers from AAA
+- Why avg_price and game_count were capped
+- The DLC count into extra game transformation
 
 
 
