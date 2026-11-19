@@ -24,13 +24,6 @@
             Interested in looking at genre tags
 - Clustering
     - Introduce more dimensions
-        - Avg_game_popularity
-        - Max_popularity
-        - Frequency: games/year ratio
-        - Genre_count
-        - Years_active: year of most recent release - year of earliest release, integer of how many years they were active
-        - Front_page_effort: number of images + number of videos + 10 if description is over a paragraph, or len(description)/500
-    - Run clustering with these new attributes
     - Once meaningful clusters are found, we name them and call it a day
 - Random forest
     - Classifier, contrast it to a linear regression
