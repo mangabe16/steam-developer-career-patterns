@@ -1,20 +1,18 @@
 ## Our core question:
-    - Does releasing more games make a developer more succesful?
+- Does releasing more games make a developer more succesful?
 
-    - Secondary questions
-        - Look at developer success according to release interval
-        - Look at developer success according to front page effort
-        - Are there natural groups of developer "types"?
-                - One hit wonder
-                - One hit flop
-                - Many hit wonder
-                - Many hit flop
-                - Maybe more?
-            - Could aid in investment decision
-                - Do I want to put my money in someone who is consistent?
-        
-        - Does the removal of adult games weaken our hypothesis?
-            - What type of growth can be found? Linear, or a different kind?
+### Secondary questions
+- Look at developer success according to release interval
+- Look at developer success according to front page effort
+- Are there natural groups of developer "types"?
+    - One hit wonder
+    - One hit flop
+    - Many hit wonder
+    - Many hit flop
+    - Maybe more?
+- Does the removal of adult games weaken our hypothesis?
+    - What type of growth can be found? Linear, or a different kind?
+
 ## Mining methods
 - A priori
     - Need to determine a meaningful threshold
@@ -28,25 +26,32 @@
 - Random forest
     - Classifier, contrast it to a linear regression
 
-            
+## Sensitvity analysis
+- Run StandardScaler *after* the clipping has been applied.
+- Have a quantitative comparison:
+    - Comparing the overall Silhouette Score between the unclipped and clipped models.
+    - Checking how many developers changed cluster assignments (e.g., using a cross-tabulation or confusion matrix of Cluster IDs before vs. after clipping).
 
 ## Tasks
-- Clean data from missing entries: IN PROGRESS
-    - Remove entries with missing developer field: DONE
-    - Need to evaluate other fields: NEEDED
-- Transforms entries with at least 1 DLC into multiple rows: NEEDED
+
+### Needed
+- Apply a priori
+- Apply regression
+- Sensitivity analysis
+
+### In Progress
 - Apply k-means on final, cleaned dataset
-    - Partially done, needs improvement
-- Identify outliers: IN PROGRESS
-    - Used z score, but with the mean so low, need to determine the right cutoff
-    - Could consider using IQR as well
+- Identify outliers
+
+### Done
+- Remove entries with missing developer field:
+- Transforms entries with at least 1 DLC into multiple rows:
+
 
 ## Things to document
 - Difficult to differentiate indie developers from AAA
 - Why avg_price and game_count were capped
 - The DLC count into extra game transformation
-
-
 
 ## Thoughts
 
@@ -69,4 +74,3 @@ Interesting questions to look for
     - https://file.biolab.si/papers/1996-DBSCAN-KDD.pdf
     - DBSCAN/Density-Based Clustering
         - Useful when clusters are non-spherical, when the number of clusters is not known in advance, or when noise points are important
-- 
