@@ -23,29 +23,24 @@
 - Clustering
     - Introduce more dimensions
     - Once meaningful clusters are found, we name them and call it a day
-- Random forest
-    - Classifier, contrast it to a linear regression
-
-## Sensitvity analysis
-- Run StandardScaler *after* the clipping has been applied.
-- Have a quantitative comparison:
-    - Comparing the overall Silhouette Score between the unclipped and clipped models.
-    - Checking how many developers changed cluster assignments (e.g., using a cross-tabulation or confusion matrix of Cluster IDs before vs. after clipping).
+- Linear regression
+    - Need to interpret the results a bit better
 
 ## Tasks
 
 ### Needed
-- Apply a priori
-- Apply regression
-- Sensitivity analysis
-
+- Clean, document, and finish the main notebook
 ### In Progress
 - Apply k-means on final, cleaned dataset
 - Identify outliers
 
 ### Done
-- Remove entries with missing developer field:
-- Transforms entries with at least 1 DLC into multiple rows:
+- Remove entries with missing developer field
+- Transforms entries with at least 1 DLC into multiple rows
+- Sensitivity analysis
+- Apply regression
+- Apply a priori
+
 
 
 ## Things to document
