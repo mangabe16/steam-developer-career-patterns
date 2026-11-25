@@ -30,6 +30,9 @@
 
 ### Needed
 - Clean, document, and finish the main notebook
+- Add Jacob's graphs showing early signs of higher engagement as game_count increased to EDA section
+- Write the final report
+
 ### In Progress
 - Apply k-means on final, cleaned dataset
 - Identify outliers
