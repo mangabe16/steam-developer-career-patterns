@@ -34,8 +34,8 @@
 - Write the final report
 
 ### In Progress
-- Apply k-means on final, cleaned dataset
-- Identify outliers
+- Polishing final notebook
+- Writing report
 
 ### Done
 - Remove entries with missing developer field
